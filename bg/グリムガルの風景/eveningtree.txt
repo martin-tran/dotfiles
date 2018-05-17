@@ -1,0 +1,16 @@
+URxvt*color0: #859be8
+URxvt*color1: #af96e4
+URxvt*color2: #cc9bd4
+URxvt*color3: #e2adc3
+URxvt*color4: #baa9a3
+URxvt*color5: #9b9194
+URxvt*color6: #7e7c87
+URxvt*color7: #d7cbb1
+URxvt*color8: #736f6c
+URxvt*color9: #948570
+URxvt*color10: #b09e84
+URxvt*color11: #7c7dc0
+URxvt*color12: #979ac3
+URxvt*color13: #839fa3
+URxvt*color14: #6a68a7
+URxvt*color15: #54627b
