@@ -6,6 +6,7 @@
 (global-set-key "\M-g" `goto-line)
 
 ;; Custom aliases
+(defalias 'sm 'set-mark-command)
 (defalias 'rb 'revert-buffer)
 (defalias 'cr 'comment-region)
 (defalias 'ucr 'uncomment-region)
@@ -34,7 +35,7 @@
      ("melpa" . "http://melpa.milkbox.net/packages/"))))
  '(package-selected-packages
    (quote
-    (go-eldoc go-mode xresources-theme auctex markdown-mode haskell-mode))))
+    (pkgbuild-mode go-eldoc go-mode xresources-theme auctex markdown-mode haskell-mode))))
 
 (package-initialize)
 (custom-set-faces
@@ -43,3 +44,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)

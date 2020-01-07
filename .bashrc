@@ -2,6 +2,7 @@
 # ~/.bashrc
 #
 
+# If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 colors() {
@@ -35,20 +36,6 @@ colors() {
 
 [ -r /usr/share/bash-completion/bash_completion   ] && . /usr/share/bash-completion/bash_completion
 
-# AUTOMATICALLY APPLY PYWAL THEME TO NEW TERMINALS
-#(wal -r &)
-#cat /home/thereca/.cache/wal/sequences
-
-# MAKE RUBY GEMS EXECUTABLE ##
-PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
-# MAKE USERWIDE CABAL INSTALLS EXECUTABLE ##
-PATH=$PATH:~/.cabal/bin
-
-# ENABLE FCITX FOR JAPANESE KEYBOARD ##
-export GTK_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
-export QT_IM_MODULE=fcitx
-
 remove_residues() {
     rm -vf *~
     rm -vf .*~
@@ -58,9 +45,7 @@ remove_residues() {
 }
 
 ## ALIAS ##
+alias ls='ls --color=auto'
 alias clean=remove_residues
 alias sshlabs="ssh martin.tran@linux.cpsc.ucalgary.ca"
-alias i3-mvwsright="i3-msg move workspace to output right"
-alias i3-mvwsleft="i3-msg move workspace to output left"
-alias ghc="ghc -dynamic -O3"
-alias cabal="/home/thereca/.local/bin/cabal"
+alias sshpsc="ssh pscadmin@psc.cpsc.ucalgary.ca"
