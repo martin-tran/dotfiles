@@ -19,21 +19,25 @@ get_alsa_mute() {
 
 raise_alsa_volume() {
     amixer -M set Master 2%+
-    swaymsg -t send_tick $(echo volum $(get_alsa_volume))
+    # swaymsg -t send_tick $(echo volum $(get_alsa_volume))
 }
 
 lower_alsa_volume() {
     amixer -M set Master 2%-
-    swaymsg -t send_tick $(echo volum $(get_alsa_volume))
+    # swaymsg -t send_tick $(echo volum $(get_alsa_volume))
 }
 
 toggle_alsa_mute() {
     amixer set Master toggle
-    if [ $(get_alsa_mute) = [off] ]; then
-	swaymsg -t send_tick $(echo volum mute)
-    else
-	swaymsg -t send_tick $(echo volum $(get_alsa_volume))
-    fi
+    # if [ $(get_alsa_mute) = [off] ]; then
+	# swaymsg -t send_tick $(echo volum mute)
+    # else
+	# swaymsg -t send_tick $(echo volum $(get_alsa_volume))
+    # fi
+}
+
+toggle_alsa_mic() {
+    amixer set Capture toggle
 }
 
 raise_mpd_volume() {
@@ -66,21 +70,10 @@ region_screenshot() {
     grim -g "$(slurp)" ~/Pictures/$(date +'%s_grim.png')
 }
 
-open_falkon() {
-    swaymsg exec falkon
-    sleep 2
-    swaymsg floating toggle
+lock_and_suspend() {
+    sudo /usr/local/sbin/echo_suspend.sh
+    swaylock -e -f --font 'IBM Plex Mono Text' -s fill -i /home/thereca/Pictures/yosumi_seek.png
 }
-
-# lock_and_suspend() {
-#     swaylock -e -f --font "IBM Plex Mono Text" -s fill -i "/home/thereca/Pictures/GFL/m200-intervention_chibi_acquire-screen.png"
-#     swaymsg "output * dpms off"
-#     sudo /usr/local/sbin/echo_suspend.sh  # Don't rely on broken programs like uswusp-git.
-#     sleep 1
-#     swaymsg "output * dpms on"
-#     sleep 1
-#     sudo hostname etria  # For some reason the hostname always resets after reboot/unsuspend.
-# }
 
 #
 # Shamelessly stolen from:

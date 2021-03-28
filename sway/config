@@ -4,8 +4,8 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-# Disable Xwayland since it keeps randomly crashing eveything.
-xwayland disable
+# Disable Xwayland since it keeps randomly crashing eveything when using Falkon.
+# xwayland disable
 
 ### Variables
 #
@@ -18,31 +18,45 @@ set $up l
 set $right semicolon
 # Your preferred terminal emulator
 set $term termite
+
 # Your preferred application launcher
-set $menu "bemenu-run --fn 'IBM Plex Mono Text 9' --tb '#2B303B' --fb '#2B303B' --nb '#2B303B' --hb '#2B303B' --sb '#2B303B' --hf '#B9C9ED' --tf '#B9C9ED' --nf '#FFFFFF'"
-set $lock "swaylock -e -f --font 'IBM Plex Mono Text' -s fill -i /home/thereca/Pictures/GFL/m200-intervention_chibi_acquire-screen.png"
+# Dark - Yosumi & Yoshina
+# set $menu "bemenu-run --fn 'IBM Plex Mono Text 12' --tb '#2B303B' --fb '#2B303B' --nb '#2B303B' --hb '#2B303B' --sb '#2B303B' --hf '#B9C9ED' --tf '#B9C9ED' --nf '#FFFFFF'"
+# Dark - yosumi & gaburyu - seek
+set $menu "bemenu-run --fn 'IBM Plex Mono Text 12' --tb '#040404' --fb '#040404' --nb '#040404' --hb '#040404' --sb '#040404' --hf '#B2BAA9' --tf '#897043' --nf '#B2BAA9'"
+# Light
+# set $menu "bemenu-run --fn 'IBM Plex Mono SemiBold 12' --tb '#F8F8F9' --fb '#F8F8F9' --nb '#F8F8F9' --hb '#F8F8F9' --sb '#F8F8F9' --hf '#3D4D6B' --tf '#3D4D6B' --nf '#000000' --ff '#64727D'"
+set $lock "swaylock -e -f --font 'IBM Plex Mono Text' -s fill -i /home/thereca/Pictures/yosumi_seek.png"
 
 ### Output configuration
 # Set the wallpaper.
-output * bg /home/thereca/Pictures/久遠雨森.png fill
+# output * bg /home/thereca/Pictures/久遠雨森.png fill
+output * bg /home/thereca/Pictures/yosumi_seek.png fill
+# output eDP-1 bg /home/thereca/Pictures/yosumi_ヨシナ_おなじ話.png fill
+# output HDMI-A-1 bg /home/thereca/Pictures/gfl/hk-416_m16_hk-usp_shot-timer_range.png fill
+# output HDMI-A-1 bg /home/thereca/Pictures/ヰ世界情緒/genesis3-5「散歩」.png fill
+
 #
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+# output eDP-1 resolution 1920x1080 position 3840,1080 scale 1
+# output HDMI-A-1 resolution 3840x2160 position 0,0 scale 1
+# output HDMI-A-1 resolution 2560x1440 position 0,0 scale 1
+# output HDMI-A-1 resolution 1920x1080 position 0,0
+# output eDP-1 disable
+# output HDMI-A-1 disable
 
 ### Idle configuration
 #
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
+# This will lock your screen after 300 seconds of inactivity, then suspend to
+# RAM after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 exec swayidle -w \
-         timeout 300 $lock \
-         timeout 450 'swaymsg "output * dpms off"' \
-              resume 'swaymsg "output * dpms on"' \
-         before-sleep $lock
-
+     timeout 300 $lock \
+     timeout 450 'sudo /usr/local/sbin/echo_suspend.sh' \
 
 ### Input configuration
 #
@@ -88,7 +102,7 @@ exec swayidle -w \
 
     # Exit sway (logs you out of your Wayland session)
     # (Or can do a bunch of other things I added)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'Sway session options:' -b 'Shutdown' 'sudo openrc-shutdown -p now' -b 'Reboot' 'sudo openrc-shutdown -r now' -b 'Logout' 'swaymsg exit' -b 'Lock' $lock
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'Sway session options:' -b 'Shutdown' 'sudo openrc-shutdown -p now' -b 'Reboot' 'sudo openrc-shutdown -r now' -b 'Logout' 'swaymsg exit' -b 'Suspend' '/home/thereca/.config/common_utils.sh lock_and_suspend' -b 'Lock' $lock
 
     workspace_auto_back_and_forth yes
     
@@ -102,6 +116,8 @@ exec swayidle -w \
     gaps inner 5
     gaps outer 0
     smart_gaps on
+
+	client.focused #454545 #454545 #454545 #454545 #454545
 
 #
 # Moving around:
@@ -236,7 +252,8 @@ bar {
     # position top
 
     # # When the status_command prints a new line to stdout, swaybar updates.
-    # status_command /home/thereca/Documents/dotfiles/go-swaystatus/swaystatus # .config/sway/swaybar_status.sh
+    # # status_command /home/thereca/Documents/dotfiles/go-swaystatus/swaystatus
+	# status_command /home/thereca/.config/sway/swaybar_status.sh
 
     # tray_padding 5
     # tray_output eDP-1
@@ -244,7 +261,7 @@ bar {
     # font "IBM Plex Mono Text 9"
     # colors {
     #     statusline #FFFFFF
-    #     background #2B303B
+    #     background #2B303BQ
     # 	focused_workspace #64727D #64727D #FFFFFF
     #     inactive_workspace #2B303B #2B303B #5C5C5C
     # }
@@ -255,18 +272,25 @@ bindsym $mod+m bar mode toggle
 # Program autostarts & keybinds
 #
     exec /home/thereca/.config/startup.sh
-
-    # Terrible hack to make only Falkon windows opened with $mod+F2 not float.
-    # Works. Sometimes.
-    bindsym $mod+F2 exec "/home/thereca/.config/common_utils.sh open_falkon"
+    
+    bindsym $mod+F1 exec emacs
+    bindsym $mod+F2 exec falkon
+    # This would be great if xwayland didn't freeze the system everytime.
+    # bindsym $mod+F3 exec "chromium --use-gl=egl --enable-features=UseOzonePlatform --ozone-platform=wayland"
+    bindsym $mod+F3 exec "chromium --use-gl=egl"
 
 # Open the following in floating mode
+for_window [app_id="anki"] floating enable
 for_window [app_id="cmst"] floating enable
 for_window [app_id="fcitx-config-gtk3"] floating enable
+for_window [app_id="qt5ct"] floating enable
 for_window [app_id="org.qbittorrent.qBittorrent"] floating enable
+for_window [app_id="wireshark"] floating enable
 
 for_window [app_id="org.kde.falkon"] floating enable
 for_window [title="Start Page - Falkon"] floating disable
+for_window [title="WineDesktop - Wine desktop"] floating enable
+for_window [class="steam_app_494100"] floating disable  # ENIGMA:
 
 # Screenshot
 bindsym Print exec "/home/thereca/.config/common_utils.sh full_screenshot"
@@ -280,5 +304,12 @@ bindsym XF86MonBrightnessDown exec "/home/thereca/.config/common_utils.sh lower_
 bindsym XF86AudioRaiseVolume exec "/home/thereca/.config/common_utils.sh raise_alsa_volume"
 bindsym XF86AudioLowerVolume exec "/home/thereca/.config/common_utils.sh lower_alsa_volume"
 bindsym XF86AudioMute exec "/home/thereca/.config/common_utils.sh toggle_alsa_mute"
+bindsym XF86AudioMicMute exec "/home/thereca/.config/common_utils.sh toggle_alsa_mic"
+
+# MPD Playback control
+bindsym XF86AudioPlay exec "mpc toggle"
+bindsym XF86AudioStop exec "mpc stop"
+bindsym XF86AudioNext exec "mpc next"
+bindsym XF86AudioPrev exec "mpc prev"
 
 include /etc/sway/config.d/*
