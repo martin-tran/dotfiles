@@ -36,16 +36,23 @@ colors() {
 
 [ -r /usr/share/bash-completion/bash_completion   ] && . /usr/share/bash-completion/bash_completion
 
-remove_residues() {
-    rm -vf *~
-    rm -vf .*~
-    rm -vf \#*
-    rm -vf *.hi
-    rm -vf *.o
-}
-
 ## ALIAS ##
-alias ls='ls --color=auto'
-alias clean=remove_residues
+alias ls="ls --color=auto --group-directories-first"
+alias clean="rm -vI \#*; rm -vI *~; rm -vI .*~"
 alias sshlabs="ssh martin.tran@linux.cpsc.ucalgary.ca"
 alias sshpsc="ssh pscadmin@psc.cpsc.ucalgary.ca"
+alias orphans="pacman -Qtdq"
+alias swaylock="swaylock -e -f --font 'IBM Plex Mono Text' -s fill -i /home/thereca/Pictures/yosumi_seek.png"
+# alias chromium="chromium --ignore-gpu-blacklist --use-gl=egl"
+
+swap_monitors_dp2() {
+    dp2_is_focused=$(swaymsg --pretty --type get_outputs | \
+                         grep -E "DP\-2.+ \(focused\)")
+    if [[ -n $dp2_is_focused ]]; then
+        swaymsg output eDP-1 enable
+        swaymsg output DP-2 disable
+    else
+        swaymsg output DP-2 enable
+        swaymsg output eDP-1 disable
+    fi
+}

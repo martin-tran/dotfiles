@@ -6,7 +6,7 @@ cell_height_scale = 1.0
 cell_width_scale = 1.0
 clickable_url = true
 dynamic_title = true
-font = IBM Plex Mono Text 10
+font = IBM Plex Mono Text 13
 fullscreen = true
 icon_name = terminal
 mouse_autohide = false
@@ -40,39 +40,177 @@ cursor_shape = block
 # "off", "left" or "right"
 scrollbar = off
 
+# [colors]
+# # If both of these are unset, cursor falls back to the foreground color,
+# # and cursor_foreground falls back to the background color.
+# #cursor = #dcdccc
+# #cursor_foreground = #dcdccc
+
+# #foreground = #dcdccc
+# #foreground_bold = #ffffff
+# #background = #3f3f3f
+
+# # 20% background transparency (requires a compositor)
+# # background = rgba(63, 63, 63, 0.8)
+
+# # If unset, will reverse foreground and background
+# highlight = #2f2f2f
+
+# # Colors from color0 to color254 can be set
+# color0 = #3f3f3f
+# color1 = #705050
+# color2 = #60b48a
+# color3 = #dfaf8f
+# color4 = #506070
+# color5 = #dc8cc3
+# color6 = #8cd0d3
+# color7 = #dcdccc
+# color8 = #709080
+# color9 = #dca3a3
+# color10 = #c3bf9f
+# color11 = #f0dfaf
+# color12 = #94bff3
+# color13 = #ec93d3
+# color14 = #93e0e3
+# color15 = #ffffff
+
+# # 2434
+# [colors]
+# # special
+# foreground      = #C7C6C5
+# foreground_bold = #C7C6C5
+# cursor          = #C7C6C5
+# background      = #252F3A
+# # black
+# color0  = #1A1D21
+# color8  = #585453
+# # red
+# color1  = #A98E87
+# color9  = #A98E87
+# # green
+# color2  = #8DA44A
+# color10 = #8DA44A
+# # yellow
+# color3  = #6474A9
+# color11 = #6474A9
+# # blue
+# color4  = #546BC3
+# color12 = #546BC3
+# # magenta
+# color5  = #8D90A9
+# color13 = #8D90A9
+# # cyan
+# color6  = #A6A0A2
+# color14 = #A6A0A2
+# # white
+# color7  = #C7C6C5
+# color15 = #C7C6C5
+
+# # yosumi & yoshina
+# [colors]
+# # special
+# foreground      = #3e3e3e
+# foreground_bold = #3e3e3e
+# cursor          = #3e3e3e
+# background      = #f8f8f9
+# # black
+# color0  = #f8f8f9
+# color8  = #bababa
+# # red
+# color1  = #3d4d6b
+# color9  = #3d4d6b
+# # green
+# color2  = #506582
+# color10 = #506582
+# # yellow
+# color3  = #7a6c55
+# color11 = #7a6c55
+# # blue
+# color4  = #858495
+# color12 = #858495
+# # magenta
+# color5  = #a1a3b9
+# color13 = #a1a3b9
+# # cyan
+# color6  = #bca5b8
+# color14 = #bca5b8
+# # white
+# color7  = #3e3e3e
+# color15 = #3e3e3e
+
+# # HK416 M16
+# [colors]
+# # special
+# foreground      = #3e3e3d
+# foreground_bold = #3e3e3d
+# cursor          = #3e3e3d
+# background      = #faf8f7
+# # black
+# color0  = #faf8f7
+# color8  = #bbbab9
+# # red
+# color1  = #ad7c68
+# color9  = #ad7c68
+# # green
+# color2  = #b09d88
+# color10 = #b09d88
+# # yellow
+# color3  = #c3bfaf
+# color11 = #c3bfaf
+# # blue
+# color4  = #a6a5a1
+# color12 = #a6a5a1
+# # magenta
+# color5  = #8896a9
+# color13 = #8896a9
+# # cyan
+# color6  = #627baa
+# color14 = #627baa
+# # white
+# color7  = #3e3e3d
+# color15 = #3e3e3d
+
+# Gaburyu feat. Yosumi - Seek
 [colors]
-# If both of these are unset, cursor falls back to the foreground color,
-# and cursor_foreground falls back to the background color.
-#cursor = #dcdccc
-#cursor_foreground = #dcdccc
 
-#foreground = #dcdccc
-#foreground_bold = #ffffff
-#background = #3f3f3f
+# special
+foreground      = #b2baa9
+foreground_bold = #b2baa9
+cursor          = #b2baa9
+background      = #040404
 
-# 20% background transparency (requires a compositor)
-# background = rgba(63, 63, 63, 0.8)
+# black
+color0  = #040404
+color8  = #7c8276
 
-# If unset, will reverse foreground and background
-highlight = #2f2f2f
+# red
+color1  = #13464f
+color9  = #13464f
 
-# Colors from color0 to color254 can be set
-color0 = #3f3f3f
-color1 = #705050
-color2 = #60b48a
-color3 = #dfaf8f
-color4 = #506070
-color5 = #dc8cc3
-color6 = #8cd0d3
-color7 = #dcdccc
-color8 = #709080
-color9 = #dca3a3
-color10 = #c3bf9f
-color11 = #f0dfaf
-color12 = #94bff3
-color13 = #ec93d3
-color14 = #93e0e3
-color15 = #ffffff
+# green
+color2  = #29464b
+color10 = #29464b
+
+# yellow
+color3  = #2a636d
+color11 = #2a636d
+
+# blue
+color4  = #4f4f4a
+color12 = #4f4f4a
+
+# magenta
+color5  = #626861
+color13 = #626861
+
+# cyan
+color6  = #897043
+color14 = #897043
+
+# white
+color7  = #b2baa9
+color15 = #b2baa9
+
 
 [hints]
 #font = Monospace 12
