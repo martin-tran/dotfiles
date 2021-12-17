@@ -42,12 +42,12 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
- '(custom-enabled-themes '(Witchmacs))
+ '(custom-enabled-themes '(xresources))
  '(custom-safe-themes
    '("e5dc5b39fecbeeb027c13e8bfbf57a865be6e0ed703ac1ffa96476b62d1fae84" "acb636fb88d15c6dd4432e7f197600a67a48fd35b54e82ea435d7cd52620c96d" default))
  '(jdee-server-dir "/home/thereca/.emacs.d/jdee-server/target/")
  '(package-selected-packages
-   '(xresources-theme go-snippets go-autocomplete go-mode company-irony company-go company-irony-c-headers company-auctex company-c-headers company markdownfmt markdown-mode+ go-imports google-c-style haskell-mode markdown-mode go-eldoc pkgbuild-mode yaml-mode magit async ido-vertical-mode avy beacon swiper which-key dashboard spaceline diminish htmlize use-package)))
+   '(origami xresources-theme go-snippets go-autocomplete go-mode company-irony company-go company-irony-c-headers company-auctex company-c-headers company markdownfmt markdown-mode+ go-imports google-c-style haskell-mode markdown-mode go-eldoc pkgbuild-mode yaml-mode magit async ido-vertical-mode avy beacon swiper which-key dashboard spaceline diminish htmlize use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

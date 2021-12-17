@@ -1,0 +1,67 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: IBM Plex Mono Text;
+    font-size: 14px;
+    font-weight: bold;
+    min-height: 0;
+}
+
+#window {
+    padding-left: 400px;
+}
+
+window#waybar {
+    background: #040404;
+    border-bottom: 2px solid #13464F;
+    color: #C7C6C5;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    color: white;
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button.focused {
+    background: #64727D;
+    border-bottom: 3px solid white;
+}
+
+#mode, #custom-mpd, #cpu, #backlight, #battery, #custom-alsa, #clock {
+    margin: 2px 2px;
+    padding-right: 2px;
+}
+
+#tray {
+    padding-left: 5px;
+    padding-right: 10px;
+}
+
+#mode {
+    background: #64727D;
+    border-bottom: 3px solid white;
+}
+
+#battery.charging {
+    color: white;
+    background-color: #26A65B;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: black;
+    }
+}
+
+#battery.warning:not(.charging) {
+    background: #f53c3c;
+    color: white;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}

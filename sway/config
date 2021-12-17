@@ -4,7 +4,7 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-# Disable Xwayland since it keeps randomly crashing eveything when using Falkon.
+# Disable Xwayland since it keeps randomly crashing eveything when using Qt5 applications.
 # xwayland disable
 
 ### Variables
@@ -23,18 +23,44 @@ set $term termite
 # Dark - Yosumi & Yoshina
 # set $menu "bemenu-run --fn 'IBM Plex Mono Text 12' --tb '#2B303B' --fb '#2B303B' --nb '#2B303B' --hb '#2B303B' --sb '#2B303B' --hf '#B9C9ED' --tf '#B9C9ED' --nf '#FFFFFF'"
 # Dark - yosumi & gaburyu - seek
-set $menu "bemenu-run --fn 'IBM Plex Mono Text 12' --tb '#040404' --fb '#040404' --nb '#040404' --hb '#040404' --sb '#040404' --hf '#B2BAA9' --tf '#897043' --nf '#B2BAA9'"
+# set $menu "bemenu-run --fn 'IBM Plex Mono Text 12' --tb '#040404' --fb '#040404' --nb '#040404' --hb '#040404' --sb '#040404' --hf '#B2BAA9' --tf '#897043' --nf '#B2BAA9'"
 # Light
-# set $menu "bemenu-run --fn 'IBM Plex Mono SemiBold 12' --tb '#F8F8F9' --fb '#F8F8F9' --nb '#F8F8F9' --hb '#F8F8F9' --sb '#F8F8F9' --hf '#3D4D6B' --tf '#3D4D6B' --nf '#000000' --ff '#64727D'"
-set $lock "swaylock -e -f --font 'IBM Plex Mono Text' -s fill -i /home/thereca/Pictures/yosumi_seek.png"
+set $menu "bemenu-run --fn 'IBM Plex Mono SemiBold 12' --tb '#FEFEFE' --fb '#FEFEFE' --nb '#FEFEFE' --hb '#FEFEFE' --sb '#FEFEFE' --hf '#EAB255' --tf '#EAB255' --nf '#000000' --ff '#4C76B9'"
+set $lock "swaylock -e -f --font 'IBM Plex Mono Text' -s fill -i /home/thereca/Pictures/yosumi_呼吸.png"
 
 ### Output configuration
 # Set the wallpaper.
 # output * bg /home/thereca/Pictures/久遠雨森.png fill
-output * bg /home/thereca/Pictures/yosumi_seek.png fill
-# output eDP-1 bg /home/thereca/Pictures/yosumi_ヨシナ_おなじ話.png fill
+# output * bg /home/thereca/Pictures/yosumi_seek.png fill
+output eDP-1 bg /home/thereca/Pictures/yosumi_呼吸.png fill
+output DP-2 bg /home/thereca/Pictures/yosumi_呼吸_4k.png fill
 # output HDMI-A-1 bg /home/thereca/Pictures/gfl/hk-416_m16_hk-usp_shot-timer_range.png fill
 # output HDMI-A-1 bg /home/thereca/Pictures/ヰ世界情緒/genesis3-5「散歩」.png fill
+
+### Colors based on wal output
+# Light
+set $background #fefefe
+set $foreground #473938
+
+set $color0 #fefefe
+set $color1 #5997CA
+set $color2 #4C76B9
+set $color3 #EAB255
+set $color4 #ACB5C9
+set $color5 #B9C4D5
+set $color6 #828693
+set $color7 #473938
+set $color8 #979798
+set $color9 #5997CA
+set $color10 #4C76B9
+set $color11 #EAB255
+set $color12 #ACB5C9
+set $color13 #B9C4D5
+set $color14 #828693
+set $color15 #473938
+
+
+### 
 
 #
 # Example configuration:
@@ -46,8 +72,11 @@ output * bg /home/thereca/Pictures/yosumi_seek.png fill
 # output HDMI-A-1 resolution 3840x2160 position 0,0 scale 1
 # output HDMI-A-1 resolution 2560x1440 position 0,0 scale 1
 # output HDMI-A-1 resolution 1920x1080 position 0,0
+# output DP-2 resolution 2560x1440 position 0,0 scale 1
+# output DP-2 resolution 3840x2160 position 0,0 scale 1
 # output eDP-1 disable
 # output HDMI-A-1 disable
+# output DP-2 disable
 
 ### Idle configuration
 #
@@ -226,16 +255,16 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 5px
-    bindsym $down resize grow height 5px
-    bindsym $up resize shrink height 5px
-    bindsym $right resize grow width 5px
+    bindsym $left resize shrink width 20px
+    bindsym $down resize grow height 20px
+    bindsym $up resize shrink height 20px
+    bindsym $right resize grow width 20px
 
     # Ditto, with arrow keys
-    bindsym Left resize shrink width 5px
-    bindsym Down resize grow height 5px
-    bindsym Up resize shrink height 5px
-    bindsym Right resize grow width 5px
+    bindsym Left resize shrink width 20px
+    bindsym Down resize grow height 20px
+    bindsym Up resize shrink height 20px
+    bindsym Right resize grow width 20px
 
     # Return to default mode
     bindsym Return mode "default"
@@ -275,8 +304,6 @@ bindsym $mod+m bar mode toggle
     
     bindsym $mod+F1 exec emacs
     bindsym $mod+F2 exec falkon
-    # This would be great if xwayland didn't freeze the system everytime.
-    # bindsym $mod+F3 exec "chromium --use-gl=egl --enable-features=UseOzonePlatform --ozone-platform=wayland"
     bindsym $mod+F3 exec "chromium --use-gl=egl"
 
 # Open the following in floating mode
@@ -285,12 +312,11 @@ for_window [app_id="cmst"] floating enable
 for_window [app_id="fcitx-config-gtk3"] floating enable
 for_window [app_id="qt5ct"] floating enable
 for_window [app_id="org.qbittorrent.qBittorrent"] floating enable
-for_window [app_id="wireshark"] floating enable
+for_window [app_id="pavucontrol-qt"] floating enable
 
 for_window [app_id="org.kde.falkon"] floating enable
 for_window [title="Start Page - Falkon"] floating disable
 for_window [title="WineDesktop - Wine desktop"] floating enable
-for_window [class="steam_app_494100"] floating disable  # ENIGMA:
 
 # Screenshot
 bindsym Print exec "/home/thereca/.config/common_utils.sh full_screenshot"

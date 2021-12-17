@@ -3,12 +3,16 @@
 
 ;; Custom aliases
 (defalias 'sm 'set-mark-command)
+(defalias 'eb 'eval-buffer)
 (defalias 'rb 'revert-buffer)
 (defalias 'cr 'comment-region)
 (defalias 'ucr 'uncomment-region)
 (defalias 'irr 'indent-rigidly-right)
 (defalias 'irl 'indent-rigidly-left)
 
+(setq-default fill-column 80)
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+(add-hook 'after-init-hook #'global-company-mode)
 (add-hook 'before-save-hook 'gofmt-before-save)
 
 ;; Start Witchmacs settings.
@@ -27,9 +31,6 @@
 
 (set-face-attribute 'default nil :height 120)
 
-;; (setq make-backup-files nil)
-;; (setq auto-save-default nil)
-
 (setq scroll-conservatively 100)
 
 (setq ring-bell-function 'ignore)
@@ -43,14 +44,6 @@
 (global-prettify-symbols-mode t)
 
 (scroll-bar-mode -1)
-
-;; (setq electric-pair-pairs '(
-;;                             (?\{ . ?\})
-;;                             (?\( . ?\))
-;;                             (?\[ . ?\])
-;;                             (?\" . ?\")
-;;                             ))
-;; (electric-pair-mode t)
 
 (defun split-and-follow-horizontally ()
       (interactive)
@@ -72,8 +65,6 @@
 (global-set-key (kbd "s-C-<right>") 'enlarge-window-horizontally)
 (global-set-key (kbd "s-C-<down>") 'shrink-window)
 (global-set-key (kbd "s-C-<up>") 'enlarge-window)
-
-(global-hl-line-mode t)
 
 (setq use-package-always-defer t)
 
@@ -249,25 +240,6 @@
   :init
   (which-key-mode))
 
-;; (use-package swiper
-;;       :ensure t
-;;       :bind ("C-s" . 'swiper))
-
-;; (use-package evil
-;;   :ensure t
-;;   :defer nil
-;;   :init
-;;   (setq evil-want-keybinding nil)
-;;   (setq evil-want-C-u-scroll t)
-;;   :config
-;;   (evil-mode 1))
-
-;;(use-package evil-collection
-;;  :after evil
-;;  :ensure t
-;;  :config
-;;  (evil-collection-init))
-
 (use-package beacon
   :ensure t
   :diminish beacon-mode
@@ -381,10 +353,6 @@
 ;;         ("C-x t C-t" . treemacs-find-file)
 ;;         ("C-x t M-t" . treemacs-find-tag)))
 
-;; (use-package treemacs-evil
-;;   :after treemacs evil
-;;     :ensure t)
-
 ;;   (use-package treemacs-icons-dired
 ;;     :after treemacs dired
 ;;     :ensure t
@@ -412,7 +380,7 @@
   (define-key company-active-map (kbd "C-p") #'company-select-previous)
   (define-key company-active-map (kbd "SPC") #'company-abort)
   :hook
-  ((java-mode c-mode c++-mode) . company-mode))
+  ((java-mode c-mode c++-mode go-mode) . company-mode))
 
 (use-package yasnippet
   :ensure t

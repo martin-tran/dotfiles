@@ -106,37 +106,46 @@ scrollbar = off
 # color7  = #C7C6C5
 # color15 = #C7C6C5
 
-# # yosumi & yoshina
-# [colors]
-# # special
-# foreground      = #3e3e3e
-# foreground_bold = #3e3e3e
-# cursor          = #3e3e3e
-# background      = #f8f8f9
-# # black
-# color0  = #f8f8f9
-# color8  = #bababa
-# # red
-# color1  = #3d4d6b
-# color9  = #3d4d6b
-# # green
-# color2  = #506582
-# color10 = #506582
-# # yellow
-# color3  = #7a6c55
-# color11 = #7a6c55
-# # blue
-# color4  = #858495
-# color12 = #858495
-# # magenta
-# color5  = #a1a3b9
-# color13 = #a1a3b9
-# # cyan
-# color6  = #bca5b8
-# color14 = #bca5b8
-# # white
-# color7  = #3e3e3e
-# color15 = #3e3e3e
+# yosumi 呼吸さえも一つに混ざる
+[colors]
+
+# special
+foreground      = #473938
+foreground_bold = #473938
+cursor          = #473938
+background      = #fefefe
+
+# black
+color0  = #fefefe
+color8  = #979798
+
+# red
+color1  = #5997ca
+color9  = #5997ca
+
+# green
+color2  = #4c76b9
+color10 = #4c76b9
+
+# yellow
+color3  = #eab255
+color11 = #eab255
+
+# blue
+color4  = #acb5c9
+color12 = #acb5c9
+
+# magenta
+color5  = #b9c4d5
+color13 = #b9c4d5
+
+# cyan
+color6  = #828693
+color14 = #828693
+
+# white
+color7  = #473938
+color15 = #473938
 
 # # HK416 M16
 # [colors]
@@ -170,46 +179,46 @@ scrollbar = off
 # color7  = #3e3e3d
 # color15 = #3e3e3d
 
-# Gaburyu feat. Yosumi - Seek
-[colors]
+# # Gaburyu feat. Yosumi - Seek
+# [colors]
 
-# special
-foreground      = #b2baa9
-foreground_bold = #b2baa9
-cursor          = #b2baa9
-background      = #040404
+# # special
+# foreground      = #b2baa9
+# foreground_bold = #b2baa9
+# cursor          = #b2baa9
+# background      = #040404
 
-# black
-color0  = #040404
-color8  = #7c8276
+# # black
+# color0  = #040404
+# color8  = #7c8276
 
-# red
-color1  = #13464f
-color9  = #13464f
+# # red
+# color1  = #13464f
+# color9  = #13464f
 
-# green
-color2  = #29464b
-color10 = #29464b
+# # green
+# color2  = #29464b
+# color10 = #29464b
 
-# yellow
-color3  = #2a636d
-color11 = #2a636d
+# # yellow
+# color3  = #2a636d
+# color11 = #2a636d
 
-# blue
-color4  = #4f4f4a
-color12 = #4f4f4a
+# # blue
+# color4  = #4f4f4a
+# color12 = #4f4f4a
 
-# magenta
-color5  = #626861
-color13 = #626861
+# # magenta
+# color5  = #626861
+# color13 = #626861
 
-# cyan
-color6  = #897043
-color14 = #897043
+# # cyan
+# color6  = #897043
+# color14 = #897043
 
-# white
-color7  = #b2baa9
-color15 = #b2baa9
+# # white
+# color7  = #b2baa9
+# color15 = #b2baa9
 
 
 [hints]

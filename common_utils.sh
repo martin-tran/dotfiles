@@ -19,21 +19,14 @@ get_alsa_mute() {
 
 raise_alsa_volume() {
     amixer -M set Master 2%+
-    # swaymsg -t send_tick $(echo volum $(get_alsa_volume))
 }
 
 lower_alsa_volume() {
     amixer -M set Master 2%-
-    # swaymsg -t send_tick $(echo volum $(get_alsa_volume))
 }
 
 toggle_alsa_mute() {
     amixer set Master toggle
-    # if [ $(get_alsa_mute) = [off] ]; then
-	# swaymsg -t send_tick $(echo volum mute)
-    # else
-	# swaymsg -t send_tick $(echo volum $(get_alsa_volume))
-    # fi
 }
 
 toggle_alsa_mic() {

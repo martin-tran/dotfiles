@@ -1,0 +1,63 @@
+{
+    "layer": "bottom",
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
+    "modules-right": ["mpd", "cpu", "backlight", "battery", "pulseaudio", "clock", "idle_inhibitor", "tray"],
+    "sway/window": {
+        "max-length": 50
+    },
+    "sway/workspaces": {
+        "disable-scroll": false,
+        "disable-scroll-wraparound": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "Ⅰ",
+            "2": "Ⅱ",
+            "3": "Ⅲ",
+            "4": "Ⅳ",
+            "5": "Ⅴ",
+            "6": "Ⅵ",
+            "7": "Ⅶ",
+            "8": "Ⅷ",
+            "9": "Ⅸ",
+            "10": "Ⅹ"
+        }
+    },
+    "backlight": {
+    	"format": "| LIGHT:{percent}%",
+	"on-scroll-up": "/home/thereca/.config/common_utils.sh raise_backlight",
+	"on-scroll-down": "/home/thereca/.config/common_utils.sh lower_backlight"
+   },
+    "battery": {
+        "format": "| BAT:{capacity}%"
+    },
+    "clock": {
+        "format": "| {:%x %H:%M:%S}",
+	"interval": 1
+    },
+    "cpu": {
+        "format": "| CPU:{}%"
+    },
+    "pulseaudio": {
+        "format": "| VOL:{volume}%",
+        "format-muted": "| VOL:MUTE",
+        "on-click": "pavucontrol-qt",
+        "on-click-middle": "/home/thereca/.config/common_utils.sh toggle_alsa_mute",
+    },
+    "mpd": {
+	"format": "| ▶ {title} - {artist}",
+    "format-paused": "| {title} - {artist}",
+    "max-length": 50,
+	"on-scroll-up": "/home/thereca/.config/common_utils.sh raise_mpd_volume",
+	"on-scroll-down": "/home/thereca/.config/common_utils.sh lower_mpd_volume"
+    },
+    "idle_inhibitor": {
+        "format": "| INHIB:{icon} |",
+      	"format-icons": {
+	    	"activated": "ON",
+		    "deactivated": "OFF"
+	    }
+    },
+   "tray": {
+        "spacing": 5
+    }
+}
