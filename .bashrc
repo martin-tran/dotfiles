@@ -6,30 +6,30 @@
 [[ $- != *i* ]] && return
 
 colors() {
-	local fgc bgc vals seq0
+    local fgc bgc vals seq0
 
-	printf "Color escapes are %s\n" '\e[${value};...;${value}m'
-	printf "Values 30..37 are \e[33mforeground colors\e[m\n"
-	printf "Values 40..47 are \e[43mbackground colors\e[m\n"
-	printf "Value  1 gives a  \e[1mbold-faced look\e[m\n\n"
+    printf "Color escapes are %s\n" '\e[${value};...;${value}m'
+    printf "Values 30..37 are \e[33mforeground colors\e[m\n"
+    printf "Values 40..47 are \e[43mbackground colors\e[m\n"
+    printf "Value  1 gives a  \e[1mbold-faced look\e[m\n\n"
 
-	# foreground colors
-	for fgc in {30..37}; do
-		# background colors
-		for bgc in {40..47}; do
-			fgc=${fgc#37} # white
-			bgc=${bgc#40} # black
+    # foreground colors
+    for fgc in {30..37}; do
+        # background colors
+        for bgc in {40..47}; do
+            fgc=${fgc#37} # white
+            bgc=${bgc#40} # black
 
-			vals="${fgc:+$fgc;}${bgc}"
-			vals=${vals%%;}
+            vals="${fgc:+$fgc;}${bgc}"
+            vals=${vals%%;}
 
-			seq0="${vals:+\e[${vals}m}"
-			printf "  %-9s" "${seq0:-(default)}"
-			printf " ${seq0}TEXT\e[m"
-			printf " \e[${vals:+${vals+$vals;}}1mBOLD\e[m"
-		done
-		echo; echo
-	done
+            seq0="${vals:+\e[${vals}m}"
+            printf "  %-9s" "${seq0:-(default)}"
+            printf " ${seq0}TEXT\e[m"
+            printf " \e[${vals:+${vals+$vals;}}1mBOLD\e[m"
+        done
+        echo; echo
+    done
 }
 
 [[ -f ~/.extend.bashrc ]] && . ~/.extend.bashrc
@@ -105,8 +105,9 @@ ssa_yt() {
 }
 
 swap_monitors_dp2() {
-    dp2_is_focused=$(swaymsg --pretty --type get_outputs | \
-                         grep -E "DP\-2.+ \(focused\)")
+    local dp2_is_focused
+    dp2_is_focused="$(swaymsg --pretty --type get_outputs | \
+                          grep -E 'DP\-2.+ \(focused\)')"
     if [[ -n "${dp2_is_focused}" ]]; then
         swaymsg output eDP-1 enable
         swaymsg output DP-2 disable
@@ -117,7 +118,8 @@ swap_monitors_dp2() {
 }
 
 swap_cpu_gov() {
-    cur_gov=$(sudo tlp-stat -p | grep scaling_governor | awk '{ print $3 }')
+    local cur_gov
+    cur_gov="$(sudo tlp-stat -p | grep scaling_governor | awk '{ print $3 }')"
     if [[ "$1" == "powersave" ]] || [[ "$1" == "schedutil" ]]; then
         gov="$1"
     else

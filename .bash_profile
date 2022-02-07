@@ -18,6 +18,9 @@ export TERMINAL=termite
 # Required for a functional tray.
 export XDG_CURRENT_DESKTOP=Unity
 
+# Skip trying to connect to seatd before logind.
+export LIBSEAT_BACKEND=logind
+
 # Autostart sway on tty1.
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
     # Force Qt5 progarms to use Wayland instead of XWayland.

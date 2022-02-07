@@ -34,6 +34,7 @@ set $lock "swaylock -e -f --font 'IBM Plex Mono Text' -s fill -i /home/thereca/P
 # output * bg /home/thereca/Pictures/yosumi_seek.png fill
 output eDP-1 bg /home/thereca/Pictures/yosumi_呼吸.png fill
 output DP-2 bg /home/thereca/Pictures/yosumi_呼吸_4k.png fill
+output HDMI-A-1 bg /home/thereca/Pictures/yosumi_呼吸_4k.png fill
 # output HDMI-A-1 bg /home/thereca/Pictures/gfl/hk-416_m16_hk-usp_shot-timer_range.png fill
 # output HDMI-A-1 bg /home/thereca/Pictures/ヰ世界情緒/genesis3-5「散歩」.png fill
 
@@ -60,7 +61,7 @@ set $color14 #828693
 set $color15 #473938
 
 
-### 
+###
 
 #
 # Example configuration:
@@ -90,17 +91,21 @@ exec swayidle -w \
 ### Input configuration
 #
     input "2:7:SynPS/2_Synaptics_TouchPad" {
-	drag enabled
+        drag enabled
         dwt enabled
         tap enabled
         natural_scroll disabled
         middle_emulation enabled
-	pointer_accel 0.5
+        pointer_accel 0.5
     }
 
     input "2:10:TPPS/2_ALPS_TrackPoint" {
         pointer_accel -0.4
-	middle_emulation disabled
+        middle_emulation disabled
+    }
+
+    input "1133:49298:Logitech_G203_LIGHTSYNC_Gaming_Mouse" {
+        pointer_accel -1
     }
 
 # You can get the names of your inputs by running: swaymsg -t get_inputs
@@ -134,7 +139,7 @@ exec swayidle -w \
     bindsym $mod+Shift+e exec swaynag -t warning -m 'Sway session options:' -b 'Shutdown' 'sudo openrc-shutdown -p now' -b 'Reboot' 'sudo openrc-shutdown -r now' -b 'Logout' 'swaymsg exit' -b 'Suspend' '/home/thereca/.config/common_utils.sh lock_and_suspend' -b 'Lock' $lock
 
     workspace_auto_back_and_forth yes
-    
+
     # Configure border style <normal|1pixel|pixel xx|none|pixel>
     default_border pixel 1
 
@@ -146,7 +151,7 @@ exec swayidle -w \
     gaps outer 0
     smart_gaps on
 
-	client.focused #454545 #454545 #454545 #454545 #454545
+    client.focused #454545 #454545 #454545 #454545 #454545
 
 #
 # Moving around:
@@ -282,7 +287,7 @@ bar {
 
     # # When the status_command prints a new line to stdout, swaybar updates.
     # # status_command /home/thereca/Documents/dotfiles/go-swaystatus/swaystatus
-	# status_command /home/thereca/.config/sway/swaybar_status.sh
+    # status_command /home/thereca/.config/sway/swaybar_status.sh
 
     # tray_padding 5
     # tray_output eDP-1
@@ -291,7 +296,7 @@ bar {
     # colors {
     #     statusline #FFFFFF
     #     background #2B303BQ
-    # 	focused_workspace #64727D #64727D #FFFFFF
+    #   focused_workspace #64727D #64727D #FFFFFF
     #     inactive_workspace #2B303B #2B303B #5C5C5C
     # }
 }
@@ -301,7 +306,7 @@ bindsym $mod+m bar mode toggle
 # Program autostarts & keybinds
 #
     exec /home/thereca/.config/startup.sh
-    
+
     bindsym $mod+F1 exec emacs
     bindsym $mod+F2 exec falkon
     bindsym $mod+F3 exec "chromium --use-gl=egl"

@@ -21,6 +21,7 @@
 (add-hook 'text-mode-hook 'display-line-numbers-mode)
 
 (show-paren-mode 1)
+(global-hl-line-mode 1)
 
 (setq inhibit-startup-message t)
 
